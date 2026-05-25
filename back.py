@@ -23,8 +23,10 @@ with col5:
 
 
 
-while True:
+while cap.isOpened():
     ret, frame = cap.read()
+    if not ret:
+         break
     grey = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
     th, binary = cv2.threshold(grey, 155,255, cv2.THRESH_BINARY)
